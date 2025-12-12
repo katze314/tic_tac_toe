@@ -1,0 +1,34 @@
+.test{
+    color: #fee1c0;
+    color: #f24b4b;
+    color: #453b61;
+    color: #1385f0;
+    color: #ffbb31;
+    color: #ed0f7e;
+}
+
+
+body{
+    background-color: #453b61;
+    color: #fee1c0;
+    
+}
+
+h1{
+    margin: 40px;
+    text-align: center;
+}
+
+
+.box{
+    background-color: #f24b4b;
+    margin: 20px;
+    border: 10px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+summary{
+    font-size: x-large;
+    margin: 10px;
+}
