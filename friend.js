@@ -39,12 +39,8 @@ function move(x){
     
         var res=end();
         var msg=document.getElementById("msg");
-        if (res==0){
-            msg.innerHTML=xo[0] + " won!"
-        }
-        if(res==1){
-            msg.innerHTML=xo[0] + " won!"
-
+        if (res<2){
+            msg.innerHTML=xo[res] + " won!"
         }
         if(res==2){
             msg.innerHTML="It's a draw!"
