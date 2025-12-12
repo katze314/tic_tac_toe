@@ -10,6 +10,7 @@ const xo=["X","O"];
 var bias=Math.floor(Math.random()*2);
 var counter=0;
 const field=[2,2,2,2,2,2,2,2,2];
+const history=[-1,-1,-1,-1,-1,-1,-1,-1,-1];
 var res=0;
 
 msg.innerHTML="It's "+xo[bias%2]+"'s turn!";
@@ -46,7 +47,7 @@ function move(x){
         counter++;
         msg.innerHTML="It's "+xo[(bias+counter)%2]+"'s turn!";
     }
-
+    history[counter]=x;
     
     res=end();
     if (res<2){
@@ -82,8 +83,22 @@ function reset(){
     for(let k=0; k<9; k++){
         document.getElementById(k).innerHTML="";
         field[k]=2;
+        history[k]=-1;
     }
     msg.innerHTML="It's "+xo[bias%2]+"'s turn!";
 
+}
+
+function undo(){
+    
+    if(counter<9&&counter>0){
+
+        document.getElementById(history[counter]).innerHTML="";
+        field[history[counter]]=2;
+        counter--;
+        history[counter]=-1;
+        msg.innerHTML="It's "+xo[(counter+bias)%2]+"'s turn!";
+        
+    }
 }
     
