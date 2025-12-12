@@ -22,15 +22,6 @@ h1{
 }
 
 
-.box{
-    background-color: #fee1c0;
-    margin: 20px;
-    border: 10px;
-    border-radius: 10px;
-    padding: 20px;
-    width: 250px;
-}
-
 summary{
     font-size: x-large;
     margin: 10px;
@@ -45,3 +36,27 @@ th{
     margin: 10px;
 }
 
+
+button{
+    color:#453b61;
+    background-color: #ffbb31;
+    border-radius: 10px;
+    height: 50px;
+    width: 100px;
+}
+
+.button-container{
+    height: 60px;
+    margin: 10px;
+}
+
+.box{
+    background-color: #fee1c0;
+    margin: 20px;
+    border: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    display: grid; 
+    place-items: center;
+}

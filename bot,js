@@ -1,10 +1,15 @@
+document.getElementById("msg"),innerHTML="hi";
+
+/*
 
 var msg=document.getElementById("msg");
-
+msg.innerHTML="hi";
+var level=1;
 
 
 const scores=[0,0];
 const xo=["X","O"];
+const player=["You", "Bot"];
 
 
 var bias=Math.floor(Math.random()*2);
@@ -12,7 +17,10 @@ var counter=0;
 const field=[2,2,2,2,2,2,2,2,2];
 const history=[-1,-1,-1,-1,-1,-1,-1,-1,-1];
 var res=0;
-msg.innerHTML="It's "+xo[bias%2]+"'s turn!";
+
+if (bias==1){
+    play();
+}
 
 
 
@@ -37,20 +45,35 @@ function end(){
 
 }
 
+function play(){
+    var x;
+    do{
+        x=Math.floor(Math.random()*9);
+    }while(field[x]!=2);
+    anymove(x);
+}
+
 function move(x){
+    anymove(x);
+    if(res>9){
+        play();
+    }
+}
+
+function anymove(x){
     if(counter<9){
     var clicked=document.getElementById(x);
     if(field[x]==2){
         field[x]=(bias+counter)%2;
         clicked.innerHTML=xo[(bias+counter)%2];
         counter++;
-        msg.innerHTML="It's "+xo[(bias+counter)%2]+"'s turn!";
+        msg.innerHTML="<br>";
     }
     history[counter]=x;
     
     res=end();
     if (res<2){
-        msg.innerHTML=xo[res] + " won!";
+        msg.innerHTML=player[res] + " won!";
     }
     if(res==2){
         msg.innerHTML="It's a draw!";
@@ -85,7 +108,10 @@ function reset(){
         field[k]=2;
         history[k]=-1;
     }
-    msg.innerHTML="It's "+xo[bias%2]+"'s turn!";
+    msg.innerHTML="<br>";
+    if(bias==1){
+        play();
+    }
 
 }
 
@@ -97,8 +123,9 @@ function undo(){
         field[history[counter]]=2;
         counter--;
         history[counter]=-1;
-        msg.innerHTML="It's "+xo[(counter+bias)%2]+"'s turn!";
+        msg.innerHTML="<br>";
         
     }
 }
     
+*/
