@@ -1,9 +1,19 @@
-var counter=0;
 
+var msg=document.getElementById("msg");
+
+
+
+const scores=[0,0];
 const xo=["X","O"];
 
-const field=[2,2,2,2,2,2,2,2,2]
-var msg=document.getElementById("msg");
+
+var bias=Math.floor(Math.random()*2);
+var counter=0;
+const field=[2,2,2,2,2,2,2,2,2];
+var res=0;
+
+msg.innerHTML="It's "+xo[bias%2]+"'s turn!";
+
 
 
 function end(){
@@ -31,19 +41,19 @@ function move(x){
     if(counter<9){
     var clicked=document.getElementById(x);
     if(field[x]==2){
-        field[x]=counter%2;
-        clicked.innerHTML=xo[counter%2];
+        field[x]=(bias+counter)%2;
+        clicked.innerHTML=xo[(bias+counter)%2];
         counter++;
-        msg.innerHTML="It's "+xo[counter%2]+"'s turn!";
+        msg.innerHTML="It's "+xo[(bias+counter)%2]+"'s turn!";
     }
 
     
-    var res=end();
+    res=end();
     if (res<2){
-        msg.innerHTML=xo[res] + " won!"
+        msg.innerHTML=xo[res] + " won!";
     }
     if(res==2){
-        msg.innerHTML="It's a draw!"
+        msg.innerHTML="It's a draw!";
 
     }
     if (res<3){
@@ -51,3 +61,29 @@ function move(x){
     }
     }
 }
+
+
+function reset(){
+
+    if (counter==9){
+    if(res<2){
+        scores[res]++;
+        bias=1-res;
+    }
+    if(res==2){
+        scores[0]++;
+        scores[1]++;
+        bias=Math.floor(Math.random()*2);
+    }}else{
+        bias=Math.floor(Math.random()*2);
+    }
+    
+    counter=0;
+    for(let k=0; k<9; k++){
+        document.getElementById(k).innerHTML="";
+        field[k]=2;
+    }
+    msg.innerHTML="It's "+xo[bias%2]+"'s turn!";
+
+}
+    
