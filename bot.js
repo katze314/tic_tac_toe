@@ -1,7 +1,3 @@
-document.getElementById("msg"),innerHTML="hi";
-
-/*
-
 var msg=document.getElementById("msg");
 msg.innerHTML="hi";
 var level=1;
@@ -45,6 +41,7 @@ function end(){
 
 }
 
+
 function play(){
     var x;
     do{
@@ -52,6 +49,7 @@ function play(){
     }while(field[x]!=2);
     anymove(x);
 }
+
 
 function move(x){
     anymove(x);
@@ -114,7 +112,7 @@ function reset(){
     }
 
 }
-
+/*
 function undo(){
     
     if(counter<9&&counter>0){
