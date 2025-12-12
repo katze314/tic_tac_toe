@@ -3,6 +3,7 @@ var counter=0;
 const xo=["X","O"];
 
 const field=[2,2,2,2,2,2,2,2,2]
+var msg=document.getElementById("msg");
 
 
 function end(){
@@ -33,21 +34,20 @@ function move(x){
         field[x]=counter%2;
         clicked.innerHTML=xo[counter%2];
         counter++;
-        
+        msg.innerHTML="It's "+xo[counter%2]+"'s turn!";
     }
 
     
-        var res=end();
-        var msg=document.getElementById("msg");
-        if (res<2){
-            msg.innerHTML=xo[res] + " won!"
-        }
-        if(res==2){
-            msg.innerHTML="It's a draw!"
+    var res=end();
+    if (res<2){
+        msg.innerHTML=xo[res] + " won!"
+    }
+    if(res==2){
+        msg.innerHTML="It's a draw!"
 
-        }
-        if (res<3){
-            counter=9;
-        }
+    }
+    if (res<3){
+        counter=9;
+    }
     }
 }
