@@ -17,8 +17,23 @@ if (bias==1){
     play();
 }
 
+function max(a,b){
+    if (a<b){
+        return b;
+    }else{
+        return a;
+    }
+}
 
-function end(){
+function min(a,b){
+    if (a<b){
+        return a;
+    }else{
+        return b;
+    }
+}
+
+function end(field, counter){
     for(let i=0; i<3; i++){
         if (field[3*i]!=2 && ((field[3*i+1]==field[3*i] && field[3*i]==field[3*i+2]))){
             return field[3*i];
@@ -39,8 +54,50 @@ function end(){
 
 }
 
-function minimax(field,history, counter, debth, maximizingPlayer){
-    
+function minimax(f, h, c, bot){
+    var res=end(f,c);
+    if (res<3){
+        console.log(f, h, c, bot,res);
+
+        if (res==2){
+            return Math.random();
+        }
+        if (res==0){
+            return 1000+Math.random();
+        }
+        if (res==1){
+            return -1000-Math.random();
+        }
+    }
+    if (bot){
+        var value=-10000;
+        for(let i=0; i<9; i++){
+            if (f[i]==2){
+                f[i]=1;
+                h[c]=i;
+                value=max(value,minimax(f, h, c+1, false));    
+                f[i]=2;
+                h[c]=-1;
+            }
+        }
+    }else{
+        var value=10000;
+        for(let i=0; i<9; i++){
+            if (f[i]==2){
+                f[i]=0;
+                h[c]=i;
+                value=min(value,minimax(f, h, c+1, true));    
+                f[i]=2;
+                h[c]=-1;
+
+            }
+        }
+        
+
+    }
+    console.log(f, h, c, bot, value);
+    return value;
+
 }
 
 
@@ -52,21 +109,13 @@ function play(){
         if(field[i]!=2) continue;
         cur_score=Math.random();
         field[i]=1;
-        if(end()==1) {
-            cur_score=1000;
-        }
-        for(let j=0; j<9; j++){
-            if(field[j]!=2) continue;
-            field[j]=0;
-            if(end()==0){
-                cur_score-=10;
-            }
-            field[j]=2;
-        }
+        history[counter]=i;
+        cur_score=minimax(field, history, counter, false)+Math.random();
         if(cur_score>score){
             x=i;
-            score=cur_score;
+            score=cur_score; 
         }
+        history[counter]=-1;
         field[i]=2;
     }
     anymove(x);
@@ -91,7 +140,7 @@ function anymove(x){
     }
     history[counter]=x;
     
-    res=end();
+    res=end(field,counter);
     if (res<2){
         msg.innerHTML=player[res] + " won!";
     }
