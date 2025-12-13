@@ -110,7 +110,7 @@ function play(){
         cur_score=Math.random();
         field[i]=1;
         history[counter]=i;
-        cur_score=minimax(field, history, counter, false)+Math.random();
+        cur_score=minimax(field, history, counter+1, false)+Math.random();
         if(cur_score>score){
             x=i;
             score=cur_score; 
@@ -206,3 +206,6 @@ function undo1(){
     }
 }
     
+function main(){
+    consoloe.log("hi");
+}
