@@ -59,12 +59,12 @@ def playChoice(field, counter):
             continue
         cur_score = random.random()
         field[i] = 1
-        history[counter] = i
+        history[counter+1] = i
         cur_score = minimax(field, history, counter+1, False) + random.random()
         if cur_score > score:
             x = i
             score = cur_score
-        history[counter] = -1
+        history[counter+1] = -1
         field[i] = 2
     return x, score
 

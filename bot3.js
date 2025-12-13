@@ -109,13 +109,13 @@ function play(){
         if(field[i]!=2) continue;
         cur_score=Math.random();
         field[i]=1;
-        history[counter]=i;
+        history[counter+1]=i;
         cur_score=minimax(field, history, counter+1, false)+Math.random();
         if(cur_score>score){
             x=i;
             score=cur_score; 
         }
-        history[counter]=-1;
+        history[counter+1]=-1;
         field[i]=2;
     }
     anymove(x);
@@ -194,7 +194,7 @@ function undo(){
 }
 
 function undo1(){
-    
+   
     if(counter<9&&counter>0){
 
         document.getElementById(history[counter]).innerHTML="";
@@ -205,7 +205,4 @@ function undo1(){
         
     }
 }
-    
-function main(){
-    consoloe.log("hi");
-}
+
