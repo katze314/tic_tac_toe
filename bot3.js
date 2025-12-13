@@ -33,20 +33,20 @@ function min(a,b){
     }
 }
 
-function end(field, counter){
+function end(f, c){
     for(let i=0; i<3; i++){
-        if (field[3*i]!=2 && ((field[3*i+1]==field[3*i] && field[3*i]==field[3*i+2]))){
-            return field[3*i];
+        if (f[3*i]!=2 && ((f[3*i+1]==f[3*i] && f[3*i]==f[3*i+2]))){
+            return f[3*i];
         }
-        if(field[i]!=2 && (field[i]==field[3+i] && field[i]==field[6+i])){
-            return field[i];
+        if(f[i]!=2 && (f[i]==f[3+i] && f[i]==f[6+i])){
+            return f[i];
         }
     }
-    if(field[4]!=2 && ((field[0]==field[4] && field [0]==field[8])||(field[2]==field[4] && field[2]==field[6]))){
-        return field[4];
+    if(f[4]!=2 && ((f[0]==f[4] && f[0]==f[8])||(f[2]==f[4] && f[2]==f[6]))){
+        return f[4];
     }
 
-    if (counter==9){
+    if (c==9){
         return 2;
     }
     return 3;
@@ -119,6 +119,7 @@ function play(){
         field[i]=2;
     }
     anymove(x);
+    console.log(x);
 }
 
 
