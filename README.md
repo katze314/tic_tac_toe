@@ -1,2 +1,3 @@
 # tic_tac_toe
-tic tac toe vs a friend or ai
+A website to play tic-tac-toe built with JavaScript, HTML and CSS. You can play against a friend or against 3 different Bots, from easy to impossible.
+[Try it out!](https://katze314.github.io/tic_tac_toe/)
