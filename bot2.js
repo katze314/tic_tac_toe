@@ -18,7 +18,6 @@ if (bias==1){
 }
 
 
-
 function end(){
     for(let i=0; i<3; i++){
         if (field[3*i]!=2 && ((field[3*i+1]==field[3*i] && field[3*i]==field[3*i+2]))){
@@ -42,10 +41,30 @@ function end(){
 
 
 function play(){   
-    var x;
-    do{
-        x=Math.floor(Math.random()*9);
-    }while(field[x]!=2);
+    let x=0;
+    let score=-1000;
+    let cur_score=Math.random();
+    for(let i=0; i<9;i++){
+        if(field[i]!=2) continue;
+        cur_score=0;
+        field[i]=1;
+        if(end()==1) {
+            cur_score=1000;
+        }
+        for(let j=0; j<9; j++){
+            if(field[j]!=2) continue;
+            field[j]=0;
+            if(end()==0){
+                cur_score-=10;
+            }
+            field[j]=2;
+        }
+        if(cur_score>score){
+            x=i;
+            score=cur_score;
+        }
+        field[i]=2;
+    }
     anymove(x);
 }
 
@@ -97,7 +116,7 @@ function reset(){
     }}else{
         bias=Math.floor(Math.random()*2);
     }
-    document.getElementById("score").innerHTML=xo[0]+": "+scores[0]+" - " + scores[1] +" :"+xo[1]; 
+    document.getElementById("score").innerHTML=player[0]+": "+scores[0]+" - " + scores[1] +" :"+player[1]; 
     
     counter=0;
     for(let k=0; k<9; k++){
