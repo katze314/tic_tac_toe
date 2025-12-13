@@ -125,7 +125,7 @@ function play(){
 
 function move(x){
     anymove(x);
-    if(res<9){
+    if(counter<9){
         play();
     }
 }

@@ -41,7 +41,7 @@ function end(){
 }
 
 
-function play(){   
+function play(){
     var x;
     do{
         x=Math.floor(Math.random()*9);
@@ -52,7 +52,7 @@ function play(){
 
 function move(x){
     anymove(x);
-    if(res<9){
+    if(counter<9){
         play();
     }
 }
