@@ -1,6 +1,5 @@
 var msg=document.getElementById("msg");
-msg.innerHTML="hi";
-var level=1;
+msg.innerHTML="<br>";
 
 
 const scores=[0,0];
@@ -42,7 +41,7 @@ function end(){
 }
 
 
-function play(){
+function play(){   
     var x;
     do{
         x=Math.floor(Math.random()*9);
@@ -53,7 +52,7 @@ function play(){
 
 function move(x){
     anymove(x);
-    if(res>9){
+    if(res<9){
         play();
     }
 }
@@ -112,8 +111,16 @@ function reset(){
     }
 
 }
-/*
+
+
 function undo(){
+    if(counter>1&&counter<9){
+    undo1();
+    undo1();
+    }
+}
+
+function undo1(){
     
     if(counter<9&&counter>0){
 
@@ -126,4 +133,3 @@ function undo(){
     }
 }
     
-*/
