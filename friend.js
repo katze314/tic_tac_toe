@@ -95,8 +95,8 @@ function undo(){
 
         document.getElementById(history[counter]).innerHTML="";
         field[history[counter]]=2;
-        counter--;
         history[counter]=-1;
+        counter--;
         msg.innerHTML="It's "+xo[(counter+bias)%2]+"'s turn!";
         
     }
