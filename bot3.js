@@ -62,10 +62,10 @@ function minimax(f, h, c, bot){
         if (res==2){
             return Math.random();
         }
-        if (res==0){
+        if (res==1){
             return 1000+Math.random();
         }
-        if (res==1){
+        if (res==0){
             return -1000-Math.random();
         }
     }
