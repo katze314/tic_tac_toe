@@ -46,7 +46,7 @@ function play(){
     let cur_score=Math.random();
     for(let i=0; i<9;i++){
         if(field[i]!=2) continue;
-        cur_score=0;
+        cur_score=Math.random();
         field[i]=1;
         if(end()==1) {
             cur_score=1000;
