@@ -134,19 +134,19 @@ function reset(){
 
 function undo(){
     if(counter>1&&counter<9){
-    undo1();
-    undo1();
+        undo1();
+        undo1();
     }
 }
 
 function undo1(){
-    
+   
     if(counter<9&&counter>0){
 
         document.getElementById(history[counter]).innerHTML="";
         field[history[counter]]=2;
-        counter--;
         history[counter]=-1;
+        counter--;
         msg.innerHTML="<br>";
         
     }
