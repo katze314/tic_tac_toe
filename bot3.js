@@ -39,6 +39,10 @@ function end(){
 
 }
 
+function minimax(field,history, counter, debth, maximizingPlayer){
+    
+}
+
 
 function play(){   
     let x=0;
